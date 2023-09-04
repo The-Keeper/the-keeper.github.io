@@ -1,7 +1,18 @@
 <script lang="ts">
   import { T } from '@threlte/core'
-  import { ContactShadows, Float, Grid, OrbitControls } from '@threlte/extras'
+  import { ContactShadows, Float, Grid, OrbitControls, Sky } from '@threlte/extras'
 </script>
+
+<Sky elevation={0.5} />
+<T.PerspectiveCamera
+  makeDefault
+  position={[0, 3, 18]}
+  fov={60}
+  on:create={({ ref }) => {
+    ref.lookAt(0, 0, 0)
+  }}
+/>
+
 
 <T.PerspectiveCamera
   makeDefault
@@ -16,13 +27,6 @@
     target.y={1.5}
   />
 </T.PerspectiveCamera>
-
-<T.DirectionalLight
-  intensity={0.8}
-  position.x={5}
-  position.y={10}
-/>
-<T.AmbientLight intensity={0.2} />
 
 <Grid
   position.y={-0.001}

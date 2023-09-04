@@ -7,13 +7,22 @@
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
+
+	import { Canvas } from '@threlte/core';
+	import Scene from '$lib/components/Scene.svelte';
 </script>
+
+<div class="scene absolute h-full w-full">
+	<Canvas>
+		<Scene />
+	</Canvas>
+</div>
 
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
-		<AppBar>
+		<AppBar background="transparent">
 			<svelte:fragment slot="lead">
 				<strong class="text-xl uppercase">Skeleton</strong>
 			</svelte:fragment>
@@ -46,5 +55,7 @@
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<slot />
+	<div class="relative">
+		<slot />
+	</div>
 </AppShell>
