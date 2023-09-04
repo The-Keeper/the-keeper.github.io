@@ -2,12 +2,6 @@
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 
-	// Highlight JS
-	import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
-	import { storeHighlightJs } from '@skeletonlabs/skeleton';
-	storeHighlightJs.set(hljs);
-
 	import { Canvas } from '@threlte/core';
 	import Scene from '$lib/components/Scene.svelte';
 </script>
