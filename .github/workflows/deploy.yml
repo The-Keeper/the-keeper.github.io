@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: 'master'
-
-
+    
 permissions:
   contents: read # to fetch code (actions/checkout)
 
@@ -25,7 +24,11 @@ jobs:
       run: pnpm install
 
     - name: build
-      run: pnpm build && touch build/.nojekyll
+      env:
+        BASE_PATH: ''
+      run: |
+        pnpm run build
+        touch build/.nojekyll
 
     - name: Upload Artifacts
       uses: actions/upload-pages-artifact@v1
