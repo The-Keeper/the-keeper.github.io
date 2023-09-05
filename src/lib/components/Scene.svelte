@@ -2,7 +2,8 @@
   import { T } from '@threlte/core'
   import { ContactShadows, Grid, OrbitControls, Sky } from '@threlte/extras'
 
-  const circle = [6, 10, 16, 20].map(x => x*7);
+  const DAYS_OF_WEEK = 7;
+  const circle_items = [6, 10, 16, 20].map(x => x*DAYS_OF_WEEK); // 364 days total
   const circle_gap_mult = 4;
   const initial_radius = 4;
   const box_size = 0.2;
@@ -51,7 +52,7 @@
   opacity={0.5}
 />
 
-{#each circle as items_per_circle, circle_i} 
+{#each circle_items as items_per_circle, circle_i} 
 {   #each Array(items_per_circle) as _, instance_j}
       <T.Mesh
         position = {[Math.sin(Math.PI * 2 * arch_circle * instance_j / items_per_circle) * (circle_i * circle_gap_mult + initial_radius), items_elevation, Math.cos(Math.PI * 2 * arch_circle * instance_j / items_per_circle) *  (circle_i * circle_gap_mult + initial_radius)]}
