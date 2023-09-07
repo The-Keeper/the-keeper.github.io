@@ -1,12 +1,12 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, AppRail } from '@skeletonlabs/skeleton';
 
 	import { Canvas } from '@threlte/core';
 	import Scene from '$lib/components/Scene.svelte';
 </script>
 
-<div class="scene absolute h-full w-full">
+<div class="scene absolute h-full w-full -z-10">
 	<Canvas>
 		<Scene />
 	</Canvas>
@@ -52,4 +52,9 @@
 	<div class="relative">
 		<slot />
 	</div>
+	<svelte:fragment slot="footer">
+		<!-- App Footer -->
+		<span>HDR: Kloppenheim 02 at <a href="https://polyhaven.com/a/kloppenheim_02">Poly Haven</a></span>
+	</svelte:fragment>
+
 </AppShell>
