@@ -6,7 +6,7 @@
 	import Scene from '$lib/components/Scene.svelte';
 </script>
 
-<div class="scene absolute h-full w-full -z-10">
+<div class="scene absolute h-full w-full">
 	<Canvas>
 		<Scene />
 	</Canvas>
@@ -54,7 +54,9 @@
 	</div>
 	<svelte:fragment slot="footer">
 		<!-- App Footer -->
-		<span>HDR: Kloppenheim 02 at <a href="https://polyhaven.com/a/kloppenheim_02">Poly Haven</a></span>
+		<div class="z-50 relative">
+			<span>HDR: Kloppenheim 02 at <a class="text-primary underline" href="https://polyhaven.com/a/kloppenheim_02">Poly Haven</a></span>
+		</div>
 	</svelte:fragment>
 
 </AppShell>
