@@ -30,7 +30,7 @@
 <Environment
   path="/hdr/"
   files={environment_file_name}
-  isBackground={true}
+  isBackground={false}
   format="hdr"
   groundProjection={{ radius: ground_projection_radius, height: ground_projection_height, scale: [ground_projection_scale, ground_projection_scale, ground_projection_scale] }}
   />
