@@ -14,8 +14,8 @@
   const environment_file_name = "kloppenheim_02_1k.hdr"
 </script>
 
-<!-- 
-<Sky elevation={0.5} />
+
+<Sky elevation={0.5} use />
 <T.PerspectiveCamera
   makeDefault
   position={[0, 3, 18]}
@@ -23,17 +23,17 @@
   on:create={({ ref }) => {
     ref.lookAt(0, 0, 0)
   }}
-/> -->
+/>
 
 
 <!-- Equirectangular hdr envmap -->
-<Environment
+<!-- <Environment
   path="/hdr/"
   files={environment_file_name}
   isBackground={false}
   format="hdr"
   groundProjection={{ radius: ground_projection_radius, height: ground_projection_height, scale: [ground_projection_scale, ground_projection_scale, ground_projection_scale] }}
-  />
+  /> -->
 
 <T.PerspectiveCamera
   position={[20, 5, 20]}
