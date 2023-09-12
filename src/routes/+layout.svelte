@@ -1,18 +1,8 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, AppRail } from '@skeletonlabs/skeleton';
-
-	import { Canvas } from '@threlte/core';
-	import Scene from '$lib/components/Scene.svelte';
+	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 </script>
 
-<div class="scene absolute h-full w-full">
-	<Canvas>
-		<Scene />
-	</Canvas>
-</div>
-
-<!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
@@ -49,14 +39,6 @@
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<div class="relative">
 		<slot />
-	</div>
-	<svelte:fragment slot="footer">
-		<!-- App Footer -->
-		<div class="z-50 relative">
-			<span>HDR: Kloppenheim 02 at <a class="text-primary underline" href="https://polyhaven.com/a/kloppenheim_02">Poly Haven</a></span>
-		</div>
-	</svelte:fragment>
 
 </AppShell>
