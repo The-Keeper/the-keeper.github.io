@@ -24,7 +24,7 @@ jobs:
       env:
         BASE_PATH: ''
       run: |
-        bun build
+        bun run build
         touch build/.nojekyll
 
     - name: Upload Artifacts
