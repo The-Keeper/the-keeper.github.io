@@ -1,44 +1,40 @@
-<script lang="ts">
+<script lang='ts'>
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+
+	// Components & Utilities
+	import { AppShell, Modal, Toast, initializeStores, prefersReducedMotionStore } from '@skeletonlabs/skeleton';
+	initializeStores();
+
+	import Drawer from '$lib/components/Drawer.svelte';
+	import CustomAppBar from '$lib/components/CustomAppBar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Sidebar from '$lib/components/Sidebar.svelte';
+
+	// Disable left sidebar on homepage
+	$: allowPageSmoothScroll = !$prefersReducedMotionStore ? 'scroll-smooth' : '';
 </script>
 
-<AppShell>
-	<svelte:fragment slot="header">
-		<!-- App Bar -->
-		<AppBar background="transparent">
-			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Skeleton</strong>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://discord.gg/EXqV7W8MtY"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Discord
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://twitter.com/SkeletonUI"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Twitter
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://github.com/skeletonlabs/skeleton"
-					target="_blank"
-					rel="noreferrer"
-				>
-					GitHub
-				</a>
-			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
-	<!-- Page Route Content -->
-		<slot />
+<!-- Overlays -->
+<Toast />
+<Drawer />
 
+<!-- App Shell -->
+<AppShell regionPage={allowPageSmoothScroll} slotFooter="bg-black p-4">
+	<!-- Header -->
+	<svelte:fragment slot="header">
+		<CustomAppBar />
+	</svelte:fragment>
+
+	<!-- Sidebar (Left) -->
+	<svelte:fragment slot="sidebarLeft">
+		<div id="sidebar-left" class="hidden lg:grid w-[360px] h-full overflow-hidden"><Sidebar/></div>
+	</svelte:fragment>
+
+	<!-- Page Content -->
+	<slot />
+
+	<!-- Page Footer -->
+	<svelte:fragment slot="pageFooter">
+		<Footer />
+	</svelte:fragment>
 </AppShell>
