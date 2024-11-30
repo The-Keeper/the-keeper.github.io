@@ -9,6 +9,6 @@
 
  </script>
 
-	<main class="md:ml-64 p-4">
+	<main class="">
 		{@render children()}
 	</main>
